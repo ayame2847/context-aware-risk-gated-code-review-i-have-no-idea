@@ -218,6 +218,29 @@ describe("Chat", () => {
     expect(callArgs.response_format).toEqual({ type: "json_object" });
   });
 
+  test("uses MiniMax-M3's documented thinking control without unsupported JSON mode", async () => {
+    process.env.MODEL = "MiniMax-M3";
+    process.env.OPENAI_API_ENDPOINT = "https://api.minimax.io/v1";
+
+    const chat = new Chat("test-key");
+    await chat.codeReview("@@ -1,2 +1,1 @@\n- check();\n run();");
+
+    const callArgs = mockCreate.mock.calls[0][0];
+    expect(callArgs.thinking).toEqual({ type: "disabled" });
+    expect(callArgs.response_format).toBeUndefined();
+    expect(callArgs.model).toBe("MiniMax-M3");
+  });
+
+  test("parses a JSON review wrapped in one Markdown code fence", async () => {
+    process.env.MODEL = "MiniMax-M3";
+    mockCreate.mockResolvedValue({ choices: [{ message: { content:
+      '```json\n{"reviews":[{"lgtm":false,"review_comment":"Missing check","hunk_header":"@@ -1,2 +1,1 @@"}]}\n```' } }] });
+
+    const result = await new Chat("test-key").codeReview("@@ -1,2 +1,1 @@\n- check();\n run();");
+
+    expect(result).toEqual([{ lgtm: false, review_comment: "Missing check", hunk_header: "@@ -1,2 +1,1 @@" }]);
+  });
+
   test("returns empty review for empty patch", async () => {
     const chat = new Chat("test-key");
     const result = await chat.codeReview("");

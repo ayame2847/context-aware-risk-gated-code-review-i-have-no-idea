@@ -1,0 +1,130 @@
+{
+  "reviewer": "Codex（AI 逐条审阅；不是独立人类标注）",
+  "rubric_version": "2026-09-28; eval/README.md scoring scale; applied to 18 fixed synthetic-case outputs",
+  "scale": {
+    "hit_expected_issue": "defect: yes/no; clean/context-limited: N/A",
+    "false_positive_count": "具体且缺乏片段证据支持的缺陷断言数；有条件的风险提示不计",
+    "actionability_0_to_2": "0 无法操作；1 方向正确但缺少明确修复或依赖未验证假设；2 具体原因且给出可行修复；LGTM 为 N/A"
+  },
+  "grades": {
+    "deepseek": {
+      "null-access": {
+        "hit_expected_issue": "yes",
+        "false_positive_count": 0,
+        "actionability_0_to_2": 2,
+        "notes": "准确指出 undefined 导致 TypeError，并建议保留空值保护。附带的 user?.name 建议若不同时处理 toUpperCase 调用仍不足，修复示例需补全。"
+      },
+      "auth-delete": {
+        "hit_expected_issue": "yes",
+        "false_positive_count": 0,
+        "actionability_0_to_2": 2,
+        "notes": "识别删除本地管理员检查及越权风险，给出恢复检查或上游授权方案。‘任何调用者’措辞对整体系统略显确定，未见上游调用链，应只断言此函数本身失去保护。"
+      },
+      "off-by-one": {
+        "hit_expected_issue": "yes",
+        "false_positive_count": 0,
+        "actionability_0_to_2": 2,
+        "notes": "准确解释 i === values.length 时访问 undefined，累加变 NaN；明确建议恢复 <。"
+      },
+      "safe-fix": {
+        "hit_expected_issue": "N/A",
+        "false_positive_count": 0,
+        "actionability_0_to_2": "N/A",
+        "notes": "给出 LGTM；没有把被修复的旧缺陷误判为新缺陷。"
+      },
+      "format-only": {
+        "hit_expected_issue": "N/A",
+        "false_positive_count": 0,
+        "actionability_0_to_2": "N/A",
+        "notes": "给出 LGTM；未把缩进变化声称为行为错误。"
+      },
+      "context-boundary": {
+        "hit_expected_issue": "N/A",
+        "false_positive_count": 0,
+        "actionability_0_to_2": 2,
+        "context_calibrated": true,
+        "notes": "指出可能风险，同时明确要求确认 timeout 单位，并分别讨论毫秒与秒两种解释；没有把未知单位断言为事实。开头‘很大风险’偏强，但后文有条件限定。"
+      }
+    },
+    "gemini-lite": {
+      "null-access": {
+        "hit_expected_issue": "yes",
+        "false_positive_count": 0,
+        "actionability_0_to_2": 1,
+        "notes": "准确指出可选 user 未经保护会触发 TypeError；没有明确提出恢复保护或等价修复，故可操作性记 1。"
+      },
+      "auth-delete": {
+        "hit_expected_issue": "yes",
+        "false_positive_count": 0,
+        "actionability_0_to_2": 2,
+        "notes": "指出删除管理员检查及越权风险，建议保留原判断；用‘除非外部已校验’限定未知上游情况。"
+      },
+      "off-by-one": {
+        "hit_expected_issue": "yes",
+        "false_positive_count": 0,
+        "actionability_0_to_2": 2,
+        "notes": "准确指出 <= 引起越界、undefined 与 NaN，明确建议保持 <。"
+      },
+      "safe-fix": {
+        "hit_expected_issue": "N/A",
+        "false_positive_count": 0,
+        "actionability_0_to_2": "N/A",
+        "notes": "给出 LGTM；未误报已修复的边界条件。"
+      },
+      "format-only": {
+        "hit_expected_issue": "N/A",
+        "false_positive_count": 0,
+        "actionability_0_to_2": "N/A",
+        "notes": "给出 LGTM；未把纯缩进变化说成行为缺陷。"
+      },
+      "context-boundary": {
+        "hit_expected_issue": "N/A",
+        "false_positive_count": 1,
+        "actionability_0_to_2": 1,
+        "context_calibrated": false,
+        "notes": "直接断言 timeout 的 1000 与 1 均为毫秒，并据此断言超时风险；片段未给 connect 定义或单位，属于一项无证据的具体推断。应先要求核实单位与接口约定。"
+      }
+    },
+    "minimax": {
+      "null-access": {
+        "hit_expected_issue": "yes",
+        "false_positive_count": 0,
+        "actionability_0_to_2": 2,
+        "notes": "识别删除空值保护及 TypeError，给出保留保护或可选链加 Guest 兜底的可执行修复。空字符串兜底属于未经需求证实的额外建议，不计缺陷误报。"
+      },
+      "auth-delete": {
+        "hit_expected_issue": "yes",
+        "false_positive_count": 0,
+        "actionability_0_to_2": 2,
+        "notes": "识别本地管理员检查被删除及越权风险，要求所有调用入口覆盖授权。不能据此确认整个系统一定可被越权；方案 A/B 都偏向迁移校验，建议略冗余。"
+      },
+      "off-by-one": {
+        "hit_expected_issue": "yes",
+        "false_positive_count": 0,
+        "actionability_0_to_2": 2,
+        "explanation_error_count": 1,
+        "notes": "主结论正确：<= 导致读取 undefined 并产生 NaN；恢复 < 或 reduce 修复可执行。附加说明称当前空数组可返回 0，与新代码实际返回 NaN 矛盾，记 1 处解释错误；它不是新的缺陷误报。"
+      },
+      "safe-fix": {
+        "hit_expected_issue": "N/A",
+        "false_positive_count": 0,
+        "actionability_0_to_2": "N/A",
+        "notes": "LGTM，未把已修复的越界误判为新缺陷。"
+      },
+      "format-only": {
+        "hit_expected_issue": "N/A",
+        "false_positive_count": 0,
+        "actionability_0_to_2": 1,
+        "style_only_comment": true,
+        "notes": "给出 1 条缩进风格建议，没有声称行为错误，依原 rubric 不计缺陷误报。片段没有仓库格式规范，断言破坏项目规范缺乏依据；lgtm=false 仍会增加审查噪声。"
+      },
+      "context-boundary": {
+        "hit_expected_issue": "N/A",
+        "false_positive_count": 1,
+        "actionability_0_to_2": 1,
+        "context_calibrated": false,
+        "notes": "未见 connect 定义就把 timeout 单位确定为毫秒，进而推断生产连接失败；记 1 项无依据缺陷断言，边界判断未通过。"
+      }
+    }
+  }
+}

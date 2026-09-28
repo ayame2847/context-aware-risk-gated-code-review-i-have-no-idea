@@ -1,0 +1,50 @@
+{
+  "deepseek": {
+    "model": "deepseek-v4-pro",
+    "requests": 6,
+    "valid": 6,
+    "defect_hits": 3,
+    "defect_cases": 3,
+    "clean_cases": 2,
+    "clean_false_positives": 0,
+    "median_total_ms": 7161.5,
+    "input_tokens": 1976,
+    "output_tokens": 2846,
+    "total_tokens": 4822,
+    "context_calibrated": true,
+    "style_only_comments": 0,
+    "explanation_errors": 0
+  },
+  "gemini-lite": {
+    "model": "gemini-3.5-flash-lite",
+    "requests": 6,
+    "valid": 6,
+    "defect_hits": 3,
+    "defect_cases": 3,
+    "clean_cases": 2,
+    "clean_false_positives": 0,
+    "median_total_ms": 1558.5,
+    "input_tokens": 1463,
+    "output_tokens": 611,
+    "total_tokens": 2074,
+    "context_calibrated": false,
+    "style_only_comments": 0,
+    "explanation_errors": 0
+  },
+  "minimax": {
+    "model": "MiniMax-M3",
+    "requests": 6,
+    "valid": 6,
+    "defect_hits": 3,
+    "defect_cases": 3,
+    "clean_cases": 2,
+    "clean_false_positives": 0,
+    "median_total_ms": 2979.0,
+    "input_tokens": 2318,
+    "output_tokens": 1260,
+    "total_tokens": 3578,
+    "context_calibrated": false,
+    "style_only_comments": 1,
+    "explanation_errors": 1
+  }
+}

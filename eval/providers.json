@@ -1,0 +1,29 @@
+{
+  "verified_at": "2026-09-28",
+  "providers": {
+    "deepseek": {
+      "base_url": "https://api.deepseek.com",
+      "model": "deepseek-v4-pro",
+      "key_env": "DEEPSEEK_API_KEY",
+      "pricing_url": "https://api-docs.deepseek.com/quick_start/pricing/"
+    },
+    "deepseek-flash": {
+      "base_url": "https://api.deepseek.com",
+      "model": "deepseek-flash",
+      "key_env": "DEEPSEEK_API_KEY",
+      "pricing_url": "https://api-docs.deepseek.com/quick_start/pricing/"
+    },
+    "minimax": {
+      "base_url": "https://api.minimax.cn/v1",
+      "model": "MiniMax-M3",
+      "key_env": "MINIMAX_API_KEY",
+      "pricing_url": "https://platform.minimax.cn/docs/guides/pricing-paygo"
+    },
+    "gemini-lite": {
+      "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+      "model": "gemini-3.5-flash-lite",
+      "key_env": "GEMINI_API_KEY",
+      "pricing_url": "https://ai.google.dev/gemini-api/docs/pricing"
+    }
+  }
+}

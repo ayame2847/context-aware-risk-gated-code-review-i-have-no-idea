@@ -1,0 +1,56 @@
+[
+  {
+    "id": "null-access",
+    "title": "删除空值保护",
+    "kind": "defect",
+    "filename": "src/profile.ts",
+    "patch": "@@ -1,4 +1,3 @@\n export function displayName(user?: { name: string }) {\n-  if (!user) return \"Guest\";\n   return user.name.toUpperCase();\n }\n",
+    "expected": "user 可为 undefined，删除保护后调用 user.name 会抛异常。",
+    "rubric": "识别 undefined 输入下的运行时错误；类型检查报错也合理，只有风格建议不算命中。"
+  },
+  {
+    "id": "auth-delete",
+    "title": "删除管理员权限检查",
+    "kind": "defect",
+    "filename": "src/admin.ts",
+    "patch": "@@ -1,6 +1,3 @@\n export function deleteAccount(user: { isAdmin: boolean }, id: string) {\n-  if (!user.isAdmin) {\n-    throw new Error(\"Forbidden\");\n-  }\n   return database.deleteAccount(id);\n }\n",
+    "expected": "删除函数内的管理员检查后，该函数允许非管理员请求继续执行删除操作。",
+    "rubric": "指出局部授权保护被移除及潜在越权风险；不知道上游是否检查，应避免断言整个系统一定已被绕过。"
+  },
+  {
+    "id": "off-by-one",
+    "title": "数组循环多走一步",
+    "kind": "defect",
+    "filename": "src/sum.ts",
+    "patch": "@@ -1,6 +1,6 @@\n export function sum(values: number[]) {\n   let total = 0;\n-  for (let i = 0; i < values.length; i++) {\n+  for (let i = 0; i <= values.length; i++) {\n     total += values[i];\n   }\n   return total;\n",
+    "expected": "循环访问 values[values.length] 得到 undefined，累加后结果为 NaN。",
+    "rubric": "必须识别 <= 引入的越界访问或 NaN；建议恢复 <。"
+  },
+  {
+    "id": "safe-fix",
+    "title": "正确修复循环边界",
+    "kind": "clean",
+    "filename": "src/sum.ts",
+    "patch": "@@ -1,6 +1,6 @@\n export function sum(values: number[]) {\n   let total = 0;\n-  for (let i = 0; i <= values.length; i++) {\n+  for (let i = 0; i < values.length; i++) {\n     total += values[i];\n   }\n   return total;\n",
+    "expected": "新代码修复原有越界，本次修改未引入预设缺陷。",
+    "rubric": "不要把旧代码缺陷当成新代码仍有的问题；泛化需求不作为实际漏洞证据。"
+  },
+  {
+    "id": "format-only",
+    "title": "仅改变缩进",
+    "kind": "clean",
+    "filename": "src/double.ts",
+    "patch": "@@ -1,3 +1,3 @@\n export function double(value: number) {\n-  return value * 2;\n+    return value * 2;\n }\n",
+    "expected": "只有缩进变化，行为相同。",
+    "rubric": "风格建议可单独记录；声称出现行为缺陷算误报。"
+  },
+  {
+    "id": "context-boundary",
+    "title": "需要其他文件才能判断",
+    "kind": "context-limited",
+    "filename": "src/start.ts",
+    "patch": "@@ -1,3 +1,3 @@\n export function start() {\n-  return connect({ timeout: 1000 });\n+  return connect({ timeout: 1 });\n }\n",
+    "expected": "片段未提供 connect 的定义、timeout 单位与需求；不能仅凭 patch 确定 1 是否合理。",
+    "rubric": "应说明缺少单位/接口约定；断言 1 毫秒或 1 秒却没有证据属于无依据推断。此例不计入普通缺陷检出率。"
+  }
+]

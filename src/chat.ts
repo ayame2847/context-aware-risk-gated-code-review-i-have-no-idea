@@ -99,6 +99,8 @@ export class Chat {
     const prompt = this.generatePrompt(patch);
 
     const isReasoning = this.isReasoningModel;
+    // MiniMax-M3 supports disabling thinking; otherwise its <think> text can break JSON parsing.
+    const isMiniMaxM3 = this.model === 'MiniMax-M3';
 
     const res = await this.openai.chat.completions.create({
       messages: [
@@ -114,14 +116,19 @@ export class Chat {
       }),
       max_tokens: process.env.max_tokens ? +process.env.max_tokens : undefined,
       ...this.reasoningEffortOption,
-      response_format: { type: "json_object" },
+      ...(isMiniMaxM3
+        ? { thinking: { type: 'disabled' } }
+        : { response_format: { type: "json_object" } }),
     });
 
     console.timeEnd('code-review cost');
 
     if (res.choices.length) {
       try {
-        const json = JSON.parse(res.choices[0].message.content || "");
+        const content = res.choices[0].message.content || "";
+        // Some compatible providers wrap an otherwise valid JSON reply in one Markdown fence.
+        const fenced = content.trim().match(/^```(?:json)?[ \t]*\r?\n([\s\S]*?)\r?\n```$/i);
+        const json = JSON.parse(fenced ? fenced[1] : content);
         // If response has a 'reviews' array, return it directly
         if (json.reviews && Array.isArray(json.reviews)) {
           return json.reviews;

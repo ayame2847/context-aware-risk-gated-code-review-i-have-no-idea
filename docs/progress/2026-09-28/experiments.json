@@ -1,0 +1,65 @@
+[
+  {
+    "run_id": "2026-09-28T09-38-24-490Z-live-477f5a34",
+    "created_at": "2026-09-28T09:38:24.491Z",
+    "project_commit": "8bd66227f057f21e847a8c27c9b356c25271d292",
+    "chat_source_sha256": "ec80cda2b3f532f6340531a0d5915046c2c6d76bfe8ddd4a918585f80c1d7312",
+    "runner_sha256": "453f2dc239c3de7b3f86ea12e3b9b39badc1e76547109b11388012781a99d106",
+    "core_sha256": "83bc08a5f1e6bde0d9473389844cde5fbe8a6bd016cc123030d5d6d0661994b0",
+    "package_lock_sha256": "d93c9d4db45616d294e0af1e223afe252ac7f889314e3aab18d2b2aef7d9cf9c",
+    "node_version": "v24.21.0",
+    "configuration": {
+      "repeat": 1,
+      "maxTokens": 4096,
+      "timeoutMs": 120000,
+      "temperature": 1
+    },
+    "evaluation_layer": "existing Chat.codeReview only; no bot filtering or GitHub publishing",
+    "thinking_policy": "provider default; project does not recognize DeepSeek/Gemini as reasoning models",
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "source_state": "local working tree at recorded baseline commit; exact source hashes recorded"
+  },
+  {
+    "run_id": "2026-09-28T09-39-14-278Z-live-e3afcf9c",
+    "created_at": "2026-09-28T09:39:14.280Z",
+    "project_commit": "8bd66227f057f21e847a8c27c9b356c25271d292",
+    "chat_source_sha256": "ec80cda2b3f532f6340531a0d5915046c2c6d76bfe8ddd4a918585f80c1d7312",
+    "runner_sha256": "453f2dc239c3de7b3f86ea12e3b9b39badc1e76547109b11388012781a99d106",
+    "core_sha256": "83bc08a5f1e6bde0d9473389844cde5fbe8a6bd016cc123030d5d6d0661994b0",
+    "package_lock_sha256": "d93c9d4db45616d294e0af1e223afe252ac7f889314e3aab18d2b2aef7d9cf9c",
+    "node_version": "v24.21.0",
+    "configuration": {
+      "repeat": 1,
+      "maxTokens": 4096,
+      "timeoutMs": 120000,
+      "temperature": 1
+    },
+    "evaluation_layer": "existing Chat.codeReview only; no bot filtering or GitHub publishing",
+    "thinking_policy": "provider default; project does not recognize DeepSeek/Gemini as reasoning models",
+    "provider": "gemini-lite",
+    "model": "gemini-3.5-flash-lite",
+    "source_state": "local working tree at recorded baseline commit; exact source hashes recorded"
+  },
+  {
+    "run_id": "2026-09-28T10-01-21-514Z-live-aa583d60",
+    "created_at": "2026-09-28T10:01:21.519Z",
+    "project_commit": "8bd66227f057f21e847a8c27c9b356c25271d292",
+    "chat_source_sha256": "60d38b141f9bfaa37eea3df7218a0408030b749ccc7994421884684ec47fec36",
+    "runner_sha256": "d50ffe4a087c6c6052d10747b343939250470fae05c09ac6ccdb0691ce2d4561",
+    "core_sha256": "398276af11ff75c4a856d07d0e209125688d7e33242348db82e9d0d30a5206ff",
+    "package_lock_sha256": "d93c9d4db45616d294e0af1e223afe252ac7f889314e3aab18d2b2aef7d9cf9c",
+    "node_version": "v24.21.0",
+    "configuration": {
+      "repeat": 1,
+      "maxTokens": 4096,
+      "timeoutMs": 120000,
+      "temperature": 1
+    },
+    "evaluation_layer": "existing Chat.codeReview only; no bot filtering or GitHub publishing",
+    "thinking_policy": "MiniMax-M3 thinking disabled for JSON compatibility; other configured models use provider default",
+    "provider": "minimax",
+    "model": "MiniMax-M3",
+    "source_state": "local working tree at recorded baseline commit; exact source hashes recorded"
+  }
+]
