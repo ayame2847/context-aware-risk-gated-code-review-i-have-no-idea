@@ -2,7 +2,7 @@
   "id": "unlocated-finding",
   "title": "问题不能定位时保留正文并标记不完整",
   "owners": [
-    "b",
+    "c",
     "d",
     "e"
   ],
@@ -94,7 +94,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

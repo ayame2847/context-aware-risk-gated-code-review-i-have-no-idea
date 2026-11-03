@@ -3,7 +3,7 @@
   "title": "必要 diff 缺失，不能报告完整审查",
   "owners": [
     "a",
-    "b",
+    "c",
     "d"
   ],
   "split": "development",
@@ -85,7 +85,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

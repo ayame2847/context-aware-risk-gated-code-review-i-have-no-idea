@@ -3,7 +3,7 @@
   "title": "fork 输入明确错误，不得自动进入付费分析或放行",
   "owners": [
     "a",
-    "b",
+    "d",
     "f"
   ],
   "split": "development",
@@ -85,7 +85,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

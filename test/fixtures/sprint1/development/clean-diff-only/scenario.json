@@ -2,7 +2,7 @@
   "id": "clean-diff-only",
   "title": "diff-only 使用同样输出协议，允许无上下文证据",
   "owners": [
-    "d",
+    "c",
     "f"
   ],
   "split": "development",
@@ -93,7 +93,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

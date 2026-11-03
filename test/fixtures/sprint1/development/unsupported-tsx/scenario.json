@@ -3,7 +3,7 @@
   "title": "TSX 在 Sprint 1 明确排除范围",
   "owners": [
     "a",
-    "b",
+    "d",
     "f"
   ],
   "split": "development",
@@ -81,7 +81,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

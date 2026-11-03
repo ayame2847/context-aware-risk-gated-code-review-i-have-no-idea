@@ -2,7 +2,7 @@
   "id": "approval-comment-preserved",
   "title": "普通评论保留之前的有效批准",
   "owners": [
-    "b",
+    "d",
     "f"
   ],
   "split": "development",
@@ -112,7 +112,9 @@
         "submittedAt": "2026-11-03T00:00:02Z"
       }
     ],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

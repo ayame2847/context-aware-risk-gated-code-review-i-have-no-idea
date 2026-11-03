@@ -2,8 +2,8 @@
   "id": "clean-context",
   "title": "正常上下文审查，没有问题",
   "owners": [
+    "b",
     "c",
-    "d",
     "e",
     "f"
   ],
@@ -95,7 +95,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

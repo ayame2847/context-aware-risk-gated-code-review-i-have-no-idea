@@ -3,7 +3,7 @@
   "title": "没有剩余模型调用次数，不继续重试或调用",
   "owners": [
     "a",
-    "d",
+    "c",
     "f"
   ],
   "split": "development",
@@ -85,7 +85,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

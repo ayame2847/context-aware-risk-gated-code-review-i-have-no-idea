@@ -3,7 +3,7 @@
   "title": "发布时 head 已改变，旧任务不得发布成功",
   "owners": [
     "a",
-    "b",
+    "d",
     "e",
     "f"
   ],
@@ -95,7 +95,9 @@
   "gateContext": {
     "currentHeadSha": "dddddddddddddddddddddddddddddddddddddddd",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

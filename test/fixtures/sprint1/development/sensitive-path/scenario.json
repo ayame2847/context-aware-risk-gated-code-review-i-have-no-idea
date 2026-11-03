@@ -3,7 +3,7 @@
   "title": "只有 workflow 变更，仍扫描敏感路径",
   "owners": [
     "a",
-    "b",
+    "d",
     "e",
     "f"
   ],
@@ -82,7 +82,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

@@ -3,7 +3,7 @@
   "title": "失败后人工接管，状态仍 FAILED 和 UNKNOWN",
   "owners": [
     "a",
-    "b",
+    "d",
     "e"
   ],
   "split": "development",
@@ -104,7 +104,9 @@
         "submittedAt": "2026-11-03T00:00:01Z"
       }
     ],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

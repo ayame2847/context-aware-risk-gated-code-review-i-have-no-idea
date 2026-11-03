@@ -3,7 +3,7 @@
   "title": "两名不同有效审阅者达到两人批准要求",
   "owners": [
     "a",
-    "b",
+    "d",
     "f"
   ],
   "split": "development",
@@ -113,7 +113,9 @@
         "submittedAt": "2026-11-03T00:00:02Z"
       }
     ],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

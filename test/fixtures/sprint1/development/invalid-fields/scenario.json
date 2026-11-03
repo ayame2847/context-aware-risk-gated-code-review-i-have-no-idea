@@ -2,7 +2,7 @@
   "id": "invalid-fields",
   "title": "JSON 可解析但 severity 不合法",
   "owners": [
-    "b",
+    "c",
     "d",
     "f"
   ],
@@ -94,7 +94,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

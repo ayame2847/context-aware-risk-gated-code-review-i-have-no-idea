@@ -3,8 +3,8 @@
   "title": "六个支持文件，只分析前五个，剩余记录 PARTIAL",
   "owners": [
     "a",
+    "b",
     "c",
-    "d",
     "f"
   ],
   "split": "development",
@@ -212,7 +212,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

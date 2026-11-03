@@ -2,7 +2,7 @@
   "id": "empty-choices",
   "title": "provider 没有 choices，不能 LGTM",
   "owners": [
-    "b",
+    "c",
     "d",
     "f"
   ],
@@ -94,7 +94,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

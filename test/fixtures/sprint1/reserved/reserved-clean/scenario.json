@@ -1,16 +1,15 @@
 {
-  "id": "holdout-zero",
-  "title": "独立评价：零值应被保留，不能被默认值覆盖",
+  "id": "reserved-clean",
+  "title": "公开保留样例：无缺陷的等价表达式",
   "owners": [
     "c",
-    "d",
     "f"
   ],
-  "split": "holdout",
-  "purpose": "独立评价：零值应被保留，不能被默认值覆盖",
+  "split": "reserved",
+  "purpose": "公开保留样例：无缺陷的等价表达式",
   "input": {
     "schemaVersion": "1",
-    "runId": "fixture-holdout-zero",
+    "runId": "fixture-reserved-clean",
     "repo": {
       "owner": "sprint1-team",
       "name": "inspector-demo"
@@ -26,14 +25,14 @@
     "diffBaseSha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "headSha": "cccccccccccccccccccccccccccccccccccccccc",
     "mode": "diff-only",
-    "diff": "--- a/src/options.ts\n+++ b/src/options.ts\n@@ -1,3 +1,3 @@\n export function limit(value: number | undefined) {\n-  return value ?? 10;\n+  return value || 10;\n }\n",
+    "diff": "--- a/src/math.ts\n+++ b/src/math.ts\n@@ -1,3 +1,3 @@\n export function double(value: number) {\n-  return value + value;\n+  return value * 2;\n }\n",
     "changedFiles": [
       {
-        "path": "src/options.ts",
+        "path": "src/math.ts",
         "status": "modified",
         "additions": 1,
         "deletions": 1,
-        "patch": "--- a/src/options.ts\n+++ b/src/options.ts\n@@ -1,3 +1,3 @@\n export function limit(value: number | undefined) {\n-  return value ?? 10;\n+  return value || 10;\n }\n",
+        "patch": "--- a/src/math.ts\n+++ b/src/math.ts\n@@ -1,3 +1,3 @@\n export function double(value: number) {\n-  return value + value;\n+  return value * 2;\n }\n",
         "supported": true
       }
     ]
@@ -66,21 +65,21 @@
   },
   "snapshots": [
     {
-      "file": "src/options.ts",
+      "file": "src/math.ts",
       "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "contentFile": "base/src/options.ts.txt"
+      "contentFile": "base/src/math.ts.txt"
     },
     {
-      "file": "src/options.ts",
+      "file": "src/math.ts",
       "ref": "cccccccccccccccccccccccccccccccccccccccc",
-      "contentFile": "head/src/options.ts.txt"
+      "contentFile": "head/src/math.ts.txt"
     }
   ],
   "modelAttempts": [
     {
-      "file": "src/options.ts",
+      "file": "src/math.ts",
       "outcome": "response",
-      "content": "{\"findings\": [{\"file\": \"src/options.ts\", \"side\": \"RIGHT\", \"line\": 2, \"severity\": \"medium\", \"message\": \"0 是有效配置值，|| 会将其替换为 10。\", \"evidenceIds\": []}]}",
+      "content": "{\"findings\": []}",
       "choices": 1,
       "elapsedMs": 10,
       "usage": null
@@ -89,7 +88,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,
@@ -106,7 +107,7 @@
     },
     "result": {
       "schemaVersion": "1",
-      "runId": "fixture-holdout-zero",
+      "runId": "fixture-reserved-clean",
       "repo": {
         "owner": "sprint1-team",
         "name": "inspector-demo"
@@ -118,31 +119,20 @@
       "analysisStatus": "COMPLETE",
       "scope": {
         "supportedFiles": [
-          "src/options.ts"
+          "src/math.ts"
         ],
         "analyzedFiles": [
-          "src/options.ts"
+          "src/math.ts"
         ],
         "excludedFiles": []
       },
       "snippets": [],
       "omissions": [],
-      "findings": [
-        {
-          "id": "F1",
-          "validation": "VERIFIED",
-          "file": "src/options.ts",
-          "side": "RIGHT",
-          "line": 2,
-          "severity": "medium",
-          "message": "0 是有效配置值，|| 会将其替换为 10。",
-          "evidenceIds": []
-        }
-      ],
+      "findings": [],
       "risk": {
-        "level": "MEDIUM",
+        "level": "LOW",
         "factors": [
-          "VERIFIED_MEDIUM_FINDING"
+          "NO_ESCALATION"
         ],
         "ruleVersion": "sprint1-v1"
       },
@@ -177,7 +167,7 @@
         "MOCK",
         "cccccccccccccccccccccccccccccccccccccccc",
         "COMPLETE",
-        "MEDIUM",
+        "LOW",
         "PASS"
       ],
       "mustNotContain": [

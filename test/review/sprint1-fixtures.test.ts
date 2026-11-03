@@ -7,6 +7,7 @@ import { resolve } from 'path';
 import {
   manifest, loadFixture, fixtureDirectory, createSnapshotReader, createScriptedModel,
 } from '../support/sprint1-fixture';
+import { verifyFixtureDiffs, verifyGateFixture } from '../support/sprint1-integrity';
 import type { ReviewResult, CalculateRisk, DecideGate, CollectContext, RenderReport } from '../../src/review/contracts';
 
 const cases = manifest.scenarios.map((entry) => ({ entry, fixture: loadFixture(entry) }));
@@ -21,7 +22,7 @@ describe('Sprint 1 fixture catalogue (not production acceptance)', () => {
     const ids = cases.map(({ fixture }) => fixture.id);
     expect(new Set(ids).size).toBe(ids.length);
     expect(ids.length).toBeGreaterThanOrEqual(40);
-    expect(new Set(cases.map(({ fixture }) => fixture.split))).toEqual(new Set(['development', 'holdout']));
+    expect(new Set(cases.map(({ fixture }) => fixture.split))).toEqual(new Set(['development', 'reserved']));
     expect(new Set(cases.flatMap(({ fixture }) => fixture.owners))).toEqual(new Set(['a', 'b', 'c', 'd', 'e', 'f']));
   });
 
@@ -31,6 +32,8 @@ describe('Sprint 1 fixture catalogue (not production acceptance)', () => {
       expect(fixture.id).toBe(entry.id);
       expect(fixture.split).toBe(entry.split);
       expect(fixture.owners).toEqual(entry.owners);
+      await verifyFixtureDiffs(fixture, fixtureDirectory(entry));
+      verifyGateFixture(fixture);
       const input = fixture.input;
       const result: ReviewResult = fixture.expected.result;
       expect(input.schemaVersion).toBe('1');

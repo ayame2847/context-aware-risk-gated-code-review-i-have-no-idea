@@ -2,7 +2,7 @@
   "id": "context-budget",
   "title": "可选定义超过 80 行上限，裁剪并记录",
   "owners": [
-    "c",
+    "b",
     "f"
   ],
   "split": "development",
@@ -93,7 +93,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

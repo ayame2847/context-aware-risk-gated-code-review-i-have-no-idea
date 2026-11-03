@@ -2,7 +2,7 @@
   "id": "invalid-file",
   "title": "模型提及不在本次输入的文件，不能计作有效发现",
   "owners": [
-    "d",
+    "c",
     "f"
   ],
   "split": "development",
@@ -93,7 +93,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

@@ -2,7 +2,7 @@
   "id": "context-dedup",
   "title": "两个 hunk 的局部窗口重叠，只返回一份范围",
   "owners": [
-    "c",
+    "b",
     "f"
   ],
   "split": "development",
@@ -93,7 +93,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

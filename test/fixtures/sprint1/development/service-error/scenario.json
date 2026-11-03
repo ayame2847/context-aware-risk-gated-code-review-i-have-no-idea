@@ -2,7 +2,7 @@
   "id": "service-error",
   "title": "暂时性服务错误一次重试后仍失败",
   "owners": [
-    "d",
+    "c",
     "f"
   ],
   "split": "development",
@@ -101,7 +101,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

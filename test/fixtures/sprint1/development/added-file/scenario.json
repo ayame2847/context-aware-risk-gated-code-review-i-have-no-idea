@@ -3,7 +3,7 @@
   "title": "新增 JS 文件，空旧侧与新增行号一致",
   "owners": [
     "a",
-    "d",
+    "c",
     "f"
   ],
   "split": "development",
@@ -84,7 +84,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

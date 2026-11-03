@@ -3,7 +3,7 @@
   "title": "只有 Markdown，未分析不等于 LGTM",
   "owners": [
     "a",
-    "b",
+    "d",
     "e",
     "f"
   ],
@@ -82,7 +82,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

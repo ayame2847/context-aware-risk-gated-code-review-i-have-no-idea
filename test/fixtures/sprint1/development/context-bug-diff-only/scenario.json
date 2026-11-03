@@ -2,7 +2,7 @@
   "id": "context-bug-diff-only",
   "title": "同一跨文件问题的 diff-only 配对输入，不提供上下文证据",
   "owners": [
-    "d",
+    "c",
     "f"
   ],
   "split": "development",
@@ -93,7 +93,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

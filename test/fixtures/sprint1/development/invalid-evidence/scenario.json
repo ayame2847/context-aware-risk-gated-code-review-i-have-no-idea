@@ -2,7 +2,7 @@
   "id": "invalid-evidence",
   "title": "引用不存在的 C404，不当成有效 HIGH",
   "owners": [
-    "b",
+    "c",
     "d",
     "f"
   ],
@@ -94,7 +94,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

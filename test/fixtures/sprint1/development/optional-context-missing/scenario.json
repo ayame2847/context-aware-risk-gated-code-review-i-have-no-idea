@@ -2,7 +2,7 @@
   "id": "optional-context-missing",
   "title": "可选定义缺失，披露但不误判整体失败",
   "owners": [
-    "c",
+    "b",
     "e",
     "f"
   ],
@@ -94,7 +94,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

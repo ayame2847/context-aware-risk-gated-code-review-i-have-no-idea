@@ -3,7 +3,7 @@
   "title": "必要 head 文件读取失败，不回退到其他版本",
   "owners": [
     "a",
-    "c",
+    "b",
     "f"
   ],
   "split": "development",
@@ -85,7 +85,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

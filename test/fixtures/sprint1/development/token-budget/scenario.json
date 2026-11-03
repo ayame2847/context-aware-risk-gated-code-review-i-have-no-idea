@@ -3,7 +3,7 @@
   "title": "已测输入超 token 预算，禁止调用",
   "owners": [
     "a",
-    "d",
+    "c",
     "f"
   ],
   "split": "development",
@@ -85,7 +85,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": 6001,

@@ -3,7 +3,7 @@
   "title": "重命名 TS 文件明确排除模型分析",
   "owners": [
     "a",
-    "b",
+    "d",
     "f"
   ],
   "split": "development",
@@ -82,7 +82,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

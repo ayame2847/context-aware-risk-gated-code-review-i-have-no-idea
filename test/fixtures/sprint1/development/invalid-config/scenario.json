@@ -3,7 +3,7 @@
   "title": "负数批准数量是配置错误，不是人工可放行情况",
   "owners": [
     "a",
-    "b"
+    "d"
   ],
   "split": "development",
   "purpose": "负数批准数量是配置错误，不是人工可放行情况",
@@ -84,7 +84,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": false
+    "configValid": false,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

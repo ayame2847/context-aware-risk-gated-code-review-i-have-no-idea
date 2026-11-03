@@ -112,6 +112,10 @@ export interface ApprovalReview {
   submittedAt: string;
 }
 export interface GateContext {
+  /** Snapshot this decision concerns; never infer it from currentHeadSha. */
+  reviewedHeadSha: string;
+  /** Needed to reject approvals from the PR author. */
+  prAuthor: string;
   currentHeadSha: string;
   reviews: ApprovalReview[];
   configValid: boolean;

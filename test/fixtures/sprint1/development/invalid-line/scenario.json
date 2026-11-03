@@ -2,7 +2,7 @@
   "id": "invalid-line",
   "title": "越界行号回退正文，不能编造行内位置",
   "owners": [
-    "d",
+    "c",
     "e",
     "f"
   ],
@@ -94,7 +94,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

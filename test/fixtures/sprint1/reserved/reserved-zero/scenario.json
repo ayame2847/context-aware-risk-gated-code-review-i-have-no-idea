@@ -1,15 +1,16 @@
 {
-  "id": "holdout-malformed",
-  "title": "独立评价：合法 JSON 但 findings 不是数组",
+  "id": "reserved-zero",
+  "title": "公开保留样例：零值应被保留，不能被默认值覆盖",
   "owners": [
-    "d",
+    "b",
+    "c",
     "f"
   ],
-  "split": "holdout",
-  "purpose": "独立评价：合法 JSON 但 findings 不是数组",
+  "split": "reserved",
+  "purpose": "公开保留样例：零值应被保留，不能被默认值覆盖",
   "input": {
     "schemaVersion": "1",
-    "runId": "fixture-holdout-malformed",
+    "runId": "fixture-reserved-zero",
     "repo": {
       "owner": "sprint1-team",
       "name": "inspector-demo"
@@ -25,14 +26,14 @@
     "diffBaseSha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "headSha": "cccccccccccccccccccccccccccccccccccccccc",
     "mode": "diff-only",
-    "diff": "--- a/src/caller.ts\n+++ b/src/caller.ts\n@@ -1,5 +1,5 @@\n import { isAllowed } from \"./rules.js\";\n \n export function canDelete(role: string) {\n-  return isAllowed(role);\n+  return Boolean(isAllowed(role));\n }\n",
+    "diff": "--- a/src/options.ts\n+++ b/src/options.ts\n@@ -1,3 +1,3 @@\n export function limit(value: number | undefined) {\n-  return value ?? 10;\n+  return value || 10;\n }\n",
     "changedFiles": [
       {
-        "path": "src/caller.ts",
+        "path": "src/options.ts",
         "status": "modified",
         "additions": 1,
         "deletions": 1,
-        "patch": "--- a/src/caller.ts\n+++ b/src/caller.ts\n@@ -1,5 +1,5 @@\n import { isAllowed } from \"./rules.js\";\n \n export function canDelete(role: string) {\n-  return isAllowed(role);\n+  return Boolean(isAllowed(role));\n }\n",
+        "patch": "--- a/src/options.ts\n+++ b/src/options.ts\n@@ -1,3 +1,3 @@\n export function limit(value: number | undefined) {\n-  return value ?? 10;\n+  return value || 10;\n }\n",
         "supported": true
       }
     ]
@@ -65,26 +66,21 @@
   },
   "snapshots": [
     {
-      "file": "src/caller.ts",
+      "file": "src/options.ts",
       "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "contentFile": "base/src/caller.ts.txt"
+      "contentFile": "base/src/options.ts.txt"
     },
     {
-      "file": "src/caller.ts",
+      "file": "src/options.ts",
       "ref": "cccccccccccccccccccccccccccccccccccccccc",
-      "contentFile": "head/src/caller.ts.txt"
-    },
-    {
-      "file": "src/rules.ts",
-      "ref": "cccccccccccccccccccccccccccccccccccccccc",
-      "contentFile": "head/src/rules.ts.txt"
+      "contentFile": "head/src/options.ts.txt"
     }
   ],
   "modelAttempts": [
     {
-      "file": "src/caller.ts",
+      "file": "src/options.ts",
       "outcome": "response",
-      "content": "{\"findings\": \"none\"}",
+      "content": "{\"findings\": [{\"file\": \"src/options.ts\", \"side\": \"RIGHT\", \"line\": 2, \"severity\": \"medium\", \"message\": \"0 是有效配置值，|| 会将其替换为 10。\", \"evidenceIds\": []}]}",
       "choices": 1,
       "elapsedMs": 10,
       "usage": null
@@ -93,7 +89,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,
@@ -110,7 +108,7 @@
     },
     "result": {
       "schemaVersion": "1",
-      "runId": "fixture-holdout-malformed",
+      "runId": "fixture-reserved-zero",
       "repo": {
         "owner": "sprint1-team",
         "name": "inspector-demo"
@@ -119,35 +117,41 @@
       "headSha": "cccccccccccccccccccccccccccccccccccccccc",
       "mode": "diff-only",
       "provider": "mock",
-      "analysisStatus": "FAILED",
+      "analysisStatus": "COMPLETE",
       "scope": {
         "supportedFiles": [
-          "src/caller.ts"
+          "src/options.ts"
         ],
-        "analyzedFiles": [],
+        "analyzedFiles": [
+          "src/options.ts"
+        ],
         "excludedFiles": []
       },
       "snippets": [],
-      "omissions": [
+      "omissions": [],
+      "findings": [
         {
-          "file": "src/caller.ts",
-          "stage": "model",
-          "reason": "INVALID_OUTPUT",
-          "required": true
+          "id": "F1",
+          "validation": "VERIFIED",
+          "file": "src/options.ts",
+          "side": "RIGHT",
+          "line": 2,
+          "severity": "medium",
+          "message": "0 是有效配置值，|| 会将其替换为 10。",
+          "evidenceIds": []
         }
       ],
-      "findings": [],
       "risk": {
-        "level": "UNKNOWN",
+        "level": "MEDIUM",
         "factors": [
-          "ANALYSIS_UNAVAILABLE"
+          "VERIFIED_MEDIUM_FINDING"
         ],
         "ruleVersion": "sprint1-v1"
       },
       "gate": {
-        "state": "WAITING",
+        "state": "PASS",
         "reasons": [
-          "APPROVAL_REQUIRED"
+          "COMPLETE_LOW_MEDIUM"
         ],
         "requiredApprovals": 1,
         "validApprovers": []
@@ -167,16 +171,16 @@
     "publication": {
       "status": "PUBLISHED",
       "commentId": 900,
-      "commitStatus": "pending",
+      "commitStatus": "success",
       "error": null
     },
     "report": {
       "contains": [
         "MOCK",
         "cccccccccccccccccccccccccccccccccccccccc",
-        "FAILED",
-        "UNKNOWN",
-        "WAITING"
+        "COMPLETE",
+        "MEDIUM",
+        "PASS"
       ],
       "mustNotContain": [
         "代码绝对安全",

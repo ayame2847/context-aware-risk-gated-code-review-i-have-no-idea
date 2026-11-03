@@ -3,7 +3,7 @@
   "title": "一个文件成功 HIGH，另一文件失败，保留已知 HIGH",
   "owners": [
     "a",
-    "b",
+    "c",
     "d",
     "e",
     "f"
@@ -122,7 +122,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

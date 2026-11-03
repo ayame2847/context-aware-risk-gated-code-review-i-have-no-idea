@@ -3,7 +3,7 @@
   "title": "当前提交有效批准后放行，风险仍为 HIGH",
   "owners": [
     "a",
-    "b",
+    "d",
     "e"
   ],
   "split": "development",
@@ -104,7 +104,9 @@
         "submittedAt": "2026-11-03T00:00:01Z"
       }
     ],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

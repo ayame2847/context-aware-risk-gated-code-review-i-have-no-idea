@@ -3,8 +3,8 @@
   "title": "整个分析阶段预算耗尽，不再发请求",
   "owners": [
     "a",
+    "b",
     "c",
-    "d",
     "f"
   ],
   "split": "development",
@@ -86,7 +86,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

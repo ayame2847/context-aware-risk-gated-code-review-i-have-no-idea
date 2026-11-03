@@ -3,7 +3,7 @@
   "title": "同一人重复批准仍只计一人，要求两人时继续等待",
   "owners": [
     "a",
-    "b",
+    "d",
     "f"
   ],
   "split": "development",
@@ -113,7 +113,9 @@
         "submittedAt": "2026-11-03T00:00:02Z"
       }
     ],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

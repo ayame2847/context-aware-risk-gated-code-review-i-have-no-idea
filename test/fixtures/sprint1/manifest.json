@@ -1,13 +1,13 @@
 {
   "schemaVersion": "1",
-  "purpose": "Offline acceptance fixtures; not production implementations or model efficacy results.",
+  "purpose": "Public offline reliability fixtures. Proposed contracts/policies for team review; reserved examples are not blind evaluation data.",
   "scenarios": [
     {
       "id": "clean-context",
       "file": "development/clean-context/scenario.json",
       "owners": [
+        "b",
         "c",
-        "d",
         "e",
         "f"
       ],
@@ -17,7 +17,7 @@
       "id": "clean-diff-only",
       "file": "development/clean-diff-only/scenario.json",
       "owners": [
-        "d",
+        "c",
         "f"
       ],
       "split": "development"
@@ -39,7 +39,7 @@
       "file": "development/high-approved/scenario.json",
       "owners": [
         "a",
-        "b",
+        "d",
         "e"
       ],
       "split": "development"
@@ -49,7 +49,7 @@
       "file": "development/approval-old-head/scenario.json",
       "owners": [
         "a",
-        "b",
+        "d",
         "f"
       ],
       "split": "development"
@@ -59,7 +59,7 @@
       "file": "development/approval-author/scenario.json",
       "owners": [
         "a",
-        "b",
+        "d",
         "f"
       ],
       "split": "development"
@@ -69,7 +69,7 @@
       "file": "development/approval-bot/scenario.json",
       "owners": [
         "a",
-        "b",
+        "d",
         "f"
       ],
       "split": "development"
@@ -79,7 +79,7 @@
       "file": "development/approval-readonly/scenario.json",
       "owners": [
         "a",
-        "b",
+        "d",
         "f"
       ],
       "split": "development"
@@ -89,7 +89,7 @@
       "file": "development/approval-dismissed/scenario.json",
       "owners": [
         "a",
-        "b",
+        "d",
         "f"
       ],
       "split": "development"
@@ -98,7 +98,7 @@
       "id": "approval-comment-preserved",
       "file": "development/approval-comment-preserved/scenario.json",
       "owners": [
-        "b",
+        "d",
         "f"
       ],
       "split": "development"
@@ -108,7 +108,7 @@
       "file": "development/changes-requested/scenario.json",
       "owners": [
         "a",
-        "b",
+        "d",
         "f"
       ],
       "split": "development"
@@ -118,7 +118,7 @@
       "file": "development/new-head/scenario.json",
       "owners": [
         "a",
-        "b",
+        "d",
         "f"
       ],
       "split": "development"
@@ -128,7 +128,7 @@
       "file": "development/stale-run/scenario.json",
       "owners": [
         "a",
-        "b",
+        "d",
         "e",
         "f"
       ],
@@ -139,7 +139,7 @@
       "file": "development/invalid-config/scenario.json",
       "owners": [
         "a",
-        "b"
+        "d"
       ],
       "split": "development"
     },
@@ -147,7 +147,7 @@
       "id": "empty-choices",
       "file": "development/empty-choices/scenario.json",
       "owners": [
-        "b",
+        "c",
         "d",
         "f"
       ],
@@ -157,7 +157,7 @@
       "id": "empty-content",
       "file": "development/empty-content/scenario.json",
       "owners": [
-        "b",
+        "c",
         "d",
         "f"
       ],
@@ -167,7 +167,7 @@
       "id": "invalid-json",
       "file": "development/invalid-json/scenario.json",
       "owners": [
-        "b",
+        "c",
         "d",
         "f"
       ],
@@ -177,7 +177,7 @@
       "id": "invalid-fields",
       "file": "development/invalid-fields/scenario.json",
       "owners": [
-        "b",
+        "c",
         "d",
         "f"
       ],
@@ -187,7 +187,7 @@
       "id": "invalid-evidence",
       "file": "development/invalid-evidence/scenario.json",
       "owners": [
-        "b",
+        "c",
         "d",
         "f"
       ],
@@ -198,7 +198,7 @@
       "file": "development/unknown-human-override/scenario.json",
       "owners": [
         "a",
-        "b",
+        "d",
         "e"
       ],
       "split": "development"
@@ -208,7 +208,7 @@
       "file": "development/timeout/scenario.json",
       "owners": [
         "a",
-        "d",
+        "c",
         "f"
       ],
       "split": "development"
@@ -217,7 +217,7 @@
       "id": "rate-limit-recovered",
       "file": "development/rate-limit-recovered/scenario.json",
       "owners": [
-        "d",
+        "c",
         "f"
       ],
       "split": "development"
@@ -226,7 +226,7 @@
       "id": "service-error",
       "file": "development/service-error/scenario.json",
       "owners": [
-        "d",
+        "c",
         "f"
       ],
       "split": "development"
@@ -236,7 +236,7 @@
       "file": "development/missing-patch/scenario.json",
       "owners": [
         "a",
-        "b",
+        "c",
         "d"
       ],
       "split": "development"
@@ -246,7 +246,7 @@
       "file": "development/head-file-read-failed/scenario.json",
       "owners": [
         "a",
-        "c",
+        "b",
         "f"
       ],
       "split": "development"
@@ -255,7 +255,7 @@
       "id": "optional-context-missing",
       "file": "development/optional-context-missing/scenario.json",
       "owners": [
-        "c",
+        "b",
         "e",
         "f"
       ],
@@ -265,7 +265,7 @@
       "id": "context-budget",
       "file": "development/context-budget/scenario.json",
       "owners": [
-        "c",
+        "b",
         "f"
       ],
       "split": "development"
@@ -274,7 +274,7 @@
       "id": "context-dedup",
       "file": "development/context-dedup/scenario.json",
       "owners": [
-        "c",
+        "b",
         "f"
       ],
       "split": "development"
@@ -284,7 +284,7 @@
       "file": "development/partial-high/scenario.json",
       "owners": [
         "a",
-        "b",
+        "c",
         "d",
         "e",
         "f"
@@ -295,7 +295,7 @@
       "id": "unlocated-finding",
       "file": "development/unlocated-finding/scenario.json",
       "owners": [
-        "b",
+        "c",
         "d",
         "e"
       ],
@@ -306,7 +306,7 @@
       "file": "development/not-applicable/scenario.json",
       "owners": [
         "a",
-        "b",
+        "d",
         "e",
         "f"
       ],
@@ -317,7 +317,7 @@
       "file": "development/sensitive-path/scenario.json",
       "owners": [
         "a",
-        "b",
+        "d",
         "e",
         "f"
       ],
@@ -328,7 +328,7 @@
       "file": "development/removed-file/scenario.json",
       "owners": [
         "a",
-        "b",
+        "d",
         "f"
       ],
       "split": "development"
@@ -338,7 +338,7 @@
       "file": "development/fork-pr/scenario.json",
       "owners": [
         "a",
-        "b",
+        "d",
         "f"
       ],
       "split": "development"
@@ -348,8 +348,8 @@
       "file": "development/file-budget/scenario.json",
       "owners": [
         "a",
+        "b",
         "c",
-        "d",
         "f"
       ],
       "split": "development"
@@ -359,7 +359,7 @@
       "file": "development/token-budget/scenario.json",
       "owners": [
         "a",
-        "d",
+        "c",
         "f"
       ],
       "split": "development"
@@ -369,7 +369,7 @@
       "file": "development/call-budget/scenario.json",
       "owners": [
         "a",
-        "d",
+        "c",
         "f"
       ],
       "split": "development"
@@ -378,7 +378,7 @@
       "id": "size-boundary",
       "file": "development/size-boundary/scenario.json",
       "owners": [
-        "b",
+        "d",
         "f"
       ],
       "split": "development"
@@ -414,39 +414,39 @@
       "split": "development"
     },
     {
-      "id": "holdout-zero",
-      "file": "holdout/holdout-zero/scenario.json",
+      "id": "reserved-zero",
+      "file": "reserved/reserved-zero/scenario.json",
+      "owners": [
+        "b",
+        "c",
+        "f"
+      ],
+      "split": "reserved"
+    },
+    {
+      "id": "reserved-clean",
+      "file": "reserved/reserved-clean/scenario.json",
       "owners": [
         "c",
-        "d",
         "f"
       ],
-      "split": "holdout"
+      "split": "reserved"
     },
     {
-      "id": "holdout-clean",
-      "file": "holdout/holdout-clean/scenario.json",
+      "id": "reserved-malformed",
+      "file": "reserved/reserved-malformed/scenario.json",
       "owners": [
-        "d",
+        "c",
         "f"
       ],
-      "split": "holdout"
-    },
-    {
-      "id": "holdout-malformed",
-      "file": "holdout/holdout-malformed/scenario.json",
-      "owners": [
-        "d",
-        "f"
-      ],
-      "split": "holdout"
+      "split": "reserved"
     },
     {
       "id": "approval-duplicate",
       "file": "development/approval-duplicate/scenario.json",
       "owners": [
         "a",
-        "b",
+        "d",
         "f"
       ],
       "split": "development"
@@ -456,7 +456,7 @@
       "file": "development/approval-two-people/scenario.json",
       "owners": [
         "a",
-        "b",
+        "d",
         "f"
       ],
       "split": "development"
@@ -466,7 +466,7 @@
       "file": "development/changes-resolved/scenario.json",
       "owners": [
         "a",
-        "b",
+        "d",
         "f"
       ],
       "split": "development"
@@ -476,7 +476,7 @@
       "file": "development/distinct-diff-base/scenario.json",
       "owners": [
         "a",
-        "c",
+        "b",
         "f"
       ],
       "split": "development"
@@ -485,7 +485,7 @@
       "id": "context-bug-diff-only",
       "file": "development/context-bug-diff-only/scenario.json",
       "owners": [
-        "d",
+        "c",
         "f"
       ],
       "split": "development"
@@ -494,7 +494,7 @@
       "id": "invalid-file",
       "file": "development/invalid-file/scenario.json",
       "owners": [
-        "d",
+        "c",
         "f"
       ],
       "split": "development"
@@ -503,7 +503,7 @@
       "id": "invalid-line",
       "file": "development/invalid-line/scenario.json",
       "owners": [
-        "d",
+        "c",
         "e",
         "f"
       ],
@@ -514,7 +514,7 @@
       "file": "development/renamed-file/scenario.json",
       "owners": [
         "a",
-        "b",
+        "d",
         "f"
       ],
       "split": "development"
@@ -524,7 +524,7 @@
       "file": "development/unsupported-tsx/scenario.json",
       "owners": [
         "a",
-        "b",
+        "d",
         "f"
       ],
       "split": "development"
@@ -534,8 +534,8 @@
       "file": "development/analysis-budget/scenario.json",
       "owners": [
         "a",
+        "b",
         "c",
-        "d",
         "f"
       ],
       "split": "development"
@@ -545,7 +545,7 @@
       "file": "development/added-file/scenario.json",
       "owners": [
         "a",
-        "d",
+        "c",
         "f"
       ],
       "split": "development"

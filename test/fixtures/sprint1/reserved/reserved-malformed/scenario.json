@@ -1,15 +1,15 @@
 {
-  "id": "holdout-clean",
-  "title": "独立评价：无缺陷的等价表达式",
+  "id": "reserved-malformed",
+  "title": "公开保留样例：合法 JSON 但 findings 不是数组",
   "owners": [
-    "d",
+    "c",
     "f"
   ],
-  "split": "holdout",
-  "purpose": "独立评价：无缺陷的等价表达式",
+  "split": "reserved",
+  "purpose": "公开保留样例：合法 JSON 但 findings 不是数组",
   "input": {
     "schemaVersion": "1",
-    "runId": "fixture-holdout-clean",
+    "runId": "fixture-reserved-malformed",
     "repo": {
       "owner": "sprint1-team",
       "name": "inspector-demo"
@@ -25,14 +25,14 @@
     "diffBaseSha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "headSha": "cccccccccccccccccccccccccccccccccccccccc",
     "mode": "diff-only",
-    "diff": "--- a/src/math.ts\n+++ b/src/math.ts\n@@ -1,3 +1,3 @@\n export function double(value: number) {\n-  return value + value;\n+  return value * 2;\n }\n",
+    "diff": "--- a/src/caller.ts\n+++ b/src/caller.ts\n@@ -1,5 +1,5 @@\n import { isAllowed } from \"./rules.js\";\n \n export function canDelete(role: string) {\n-  return isAllowed(role);\n+  return Boolean(isAllowed(role));\n }\n",
     "changedFiles": [
       {
-        "path": "src/math.ts",
+        "path": "src/caller.ts",
         "status": "modified",
         "additions": 1,
         "deletions": 1,
-        "patch": "--- a/src/math.ts\n+++ b/src/math.ts\n@@ -1,3 +1,3 @@\n export function double(value: number) {\n-  return value + value;\n+  return value * 2;\n }\n",
+        "patch": "--- a/src/caller.ts\n+++ b/src/caller.ts\n@@ -1,5 +1,5 @@\n import { isAllowed } from \"./rules.js\";\n \n export function canDelete(role: string) {\n-  return isAllowed(role);\n+  return Boolean(isAllowed(role));\n }\n",
         "supported": true
       }
     ]
@@ -65,21 +65,26 @@
   },
   "snapshots": [
     {
-      "file": "src/math.ts",
+      "file": "src/caller.ts",
       "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "contentFile": "base/src/math.ts.txt"
+      "contentFile": "base/src/caller.ts.txt"
     },
     {
-      "file": "src/math.ts",
+      "file": "src/caller.ts",
       "ref": "cccccccccccccccccccccccccccccccccccccccc",
-      "contentFile": "head/src/math.ts.txt"
+      "contentFile": "head/src/caller.ts.txt"
+    },
+    {
+      "file": "src/rules.ts",
+      "ref": "cccccccccccccccccccccccccccccccccccccccc",
+      "contentFile": "head/src/rules.ts.txt"
     }
   ],
   "modelAttempts": [
     {
-      "file": "src/math.ts",
+      "file": "src/caller.ts",
       "outcome": "response",
-      "content": "{\"findings\": []}",
+      "content": "{\"findings\": \"none\"}",
       "choices": 1,
       "elapsedMs": 10,
       "usage": null
@@ -88,7 +93,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,
@@ -105,7 +112,7 @@
     },
     "result": {
       "schemaVersion": "1",
-      "runId": "fixture-holdout-clean",
+      "runId": "fixture-reserved-malformed",
       "repo": {
         "owner": "sprint1-team",
         "name": "inspector-demo"
@@ -114,30 +121,35 @@
       "headSha": "cccccccccccccccccccccccccccccccccccccccc",
       "mode": "diff-only",
       "provider": "mock",
-      "analysisStatus": "COMPLETE",
+      "analysisStatus": "FAILED",
       "scope": {
         "supportedFiles": [
-          "src/math.ts"
+          "src/caller.ts"
         ],
-        "analyzedFiles": [
-          "src/math.ts"
-        ],
+        "analyzedFiles": [],
         "excludedFiles": []
       },
       "snippets": [],
-      "omissions": [],
+      "omissions": [
+        {
+          "file": "src/caller.ts",
+          "stage": "model",
+          "reason": "INVALID_OUTPUT",
+          "required": true
+        }
+      ],
       "findings": [],
       "risk": {
-        "level": "LOW",
+        "level": "UNKNOWN",
         "factors": [
-          "NO_ESCALATION"
+          "ANALYSIS_UNAVAILABLE"
         ],
         "ruleVersion": "sprint1-v1"
       },
       "gate": {
-        "state": "PASS",
+        "state": "WAITING",
         "reasons": [
-          "COMPLETE_LOW_MEDIUM"
+          "APPROVAL_REQUIRED"
         ],
         "requiredApprovals": 1,
         "validApprovers": []
@@ -157,16 +169,16 @@
     "publication": {
       "status": "PUBLISHED",
       "commentId": 900,
-      "commitStatus": "success",
+      "commitStatus": "pending",
       "error": null
     },
     "report": {
       "contains": [
         "MOCK",
         "cccccccccccccccccccccccccccccccccccccccc",
-        "COMPLETE",
-        "LOW",
-        "PASS"
+        "FAILED",
+        "UNKNOWN",
+        "WAITING"
       ],
       "mustNotContain": [
         "代码绝对安全",

@@ -2,7 +2,7 @@
   "id": "rate-limit-recovered",
   "title": "429 后一次重试成功",
   "owners": [
-    "d",
+    "c",
     "f"
   ],
   "split": "development",
@@ -101,7 +101,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

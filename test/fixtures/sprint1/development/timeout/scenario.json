@@ -3,7 +3,7 @@
   "title": "请求超时且有限重试用完",
   "owners": [
     "a",
-    "d",
+    "c",
     "f"
   ],
   "split": "development",
@@ -102,7 +102,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

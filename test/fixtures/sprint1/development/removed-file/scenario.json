@@ -3,7 +3,7 @@
   "title": "删除 TS 文件不进入 Sprint 1 模型范围",
   "owners": [
     "a",
-    "b",
+    "d",
     "f"
   ],
   "split": "development",
@@ -26,14 +26,14 @@
     "diffBaseSha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "headSha": "cccccccccccccccccccccccccccccccccccccccc",
     "mode": "diff-only",
-    "diff": "--- a/src/removed.ts\n+++ b/src/removed.ts\n@@ -1 +0,0 @@\n-export const removed = true;\n",
+    "diff": "--- a/src/removed.ts\n+++ /dev/null\n@@ -1 +0,0 @@\n-export const removed = true;\n",
     "changedFiles": [
       {
         "path": "src/removed.ts",
         "status": "removed",
         "additions": 0,
         "deletions": 1,
-        "patch": "--- a/src/removed.ts\n+++ b/src/removed.ts\n@@ -1 +0,0 @@\n-export const removed = true;\n",
+        "patch": "--- a/src/removed.ts\n+++ /dev/null\n@@ -1 +0,0 @@\n-export const removed = true;\n",
         "supported": false,
         "exclusionReason": "UNSUPPORTED_CHANGE_TYPE"
       }
@@ -76,7 +76,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

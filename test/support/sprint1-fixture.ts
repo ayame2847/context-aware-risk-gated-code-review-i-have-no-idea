@@ -24,7 +24,7 @@ export interface SprintFixture {
   id: string;
   title: string;
   owners: string[];
-  split: 'development' | 'holdout';
+  split: 'development' | 'reserved';
   purpose: string;
   input: ReviewInput;
   /** Raw invalid configurations deliberately appear in configuration error cases. */
@@ -51,7 +51,7 @@ export interface SprintFixture {
   };
   notes: string[];
 }
-export interface FixtureEntry { id: string; file: string; owners: string[]; split: string }
+export interface FixtureEntry { id: string; file: string; owners: string[]; split: 'development' | 'reserved' }
 export const fixtureRoot = resolve(__dirname, '../fixtures/sprint1');
 export const manifest = JSON.parse(readFileSync(resolve(fixtureRoot, 'manifest.json'), 'utf8')) as {
   schemaVersion: string; scenarios: FixtureEntry[];

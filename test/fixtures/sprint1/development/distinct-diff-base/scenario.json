@@ -3,7 +3,7 @@
   "title": "目标分支快照不同于真正 diff 基准，不能混用",
   "owners": [
     "a",
-    "c",
+    "b",
     "f"
   ],
   "split": "development",
@@ -94,7 +94,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,

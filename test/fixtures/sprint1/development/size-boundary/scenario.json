@@ -2,7 +2,7 @@
   "id": "size-boundary",
   "title": "恰好 200 改动行也触发 MEDIUM",
   "owners": [
-    "b",
+    "d",
     "f"
   ],
   "split": "development",
@@ -88,7 +88,9 @@
   "gateContext": {
     "currentHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
     "reviews": [],
-    "configValid": true
+    "configValid": true,
+    "reviewedHeadSha": "cccccccccccccccccccccccccccccccccccccccc",
+    "prAuthor": "author-a"
   },
   "preflight": {
     "measuredInputTokens": null,
