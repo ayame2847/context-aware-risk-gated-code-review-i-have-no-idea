@@ -1,0 +1,56 @@
+name: Personal Bot Review (live model)
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - 'demo/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: personal-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    if: >-
+      github.repository == 'ayame2847/context-aware-risk-gated-code-review-i-have-no-idea' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.user.login == github.repository_owner &&
+      github.actor == github.repository_owner
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout fixed bot code (never execute demo PR code)
+        uses: actions/checkout@v5
+        with:
+          ref: 0cee0bb44f53b45c06521bb2ad343bfc4227541a
+          persist-credentials: false
+      - name: Check model credential is configured
+        env:
+          MODEL_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ -z "$MODEL_KEY" ]; then
+            echo "::error::Save the DeepSeek API key as OPENAI_API_KEY, then re-run this job."
+            exit 1
+          fi
+      - name: Review demo patch with the pinned project Action
+        uses: ./
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          USE_GITHUB_MODELS: 'false'
+          OPENAI_API_ENDPOINT: ${{ vars.OPENAI_API_ENDPOINT || 'https://api.deepseek.com' }}
+          MODEL: ${{ vars.MODEL || 'deepseek-flash' }}
+          LANGUAGE: Chinese
+          LOG_LEVEL: error
+          INCLUDE_PATTERNS: demo/*.ts
+          MAX_PATCH_LENGTH: '12000'
+          max_tokens: '8192'
+          temperature: '0'
+          top_p: '1'
